@@ -45,27 +45,38 @@ const Form = (props) => {
     setText("");
   };
 
+  const formClickHandler = () => {
+    console.log("Form clicked on")
+    // create state
+    
+  }
+
   return (
+    // Based on the state, output correct form
     <div>
-      {/* <div className="form-container inactive-form" onClick={formClickHandler}>
-                <form>
-                    <input className="note-text" type="text" placeholder="Take a note..." />
-                    <div className="form-actions">
-                        <div className="tooltip">
-                            <span className="material-icons-outlined hover">check_box</span>
-                            <span className="tooltip-text">New List</span>
-                        </div>
-                        <div className="tooltip">
-                            <span className="material-icons-outlined hover">brush</span>
-                            <span className="tooltip-text">New Drawing</span>
-                        </div>
-                        <div className="tooltip">
-                            <span className="material-icons-outlined hover">image</span>
-                            <span className="tooltip-text">New Image</span>
-                        </div>
-                    </div>
-                </form>
-            </div> */}
+      <div className="form-container inactive-form" onClick={formClickHandler}>
+        <form>
+          <input
+            className="note-text"
+            type="text"
+            placeholder="Take a note..."
+          />
+          <div className="form-actions">
+            <div className="tooltip">
+              <span className="material-icons-outlined hover">check_box</span>
+              <span className="tooltip-text">New List</span>
+            </div>
+            <div className="tooltip">
+              <span className="material-icons-outlined hover">brush</span>
+              <span className="tooltip-text">New Drawing</span>
+            </div>
+            <div className="tooltip">
+              <span className="material-icons-outlined hover">image</span>
+              <span className="tooltip-text">New Image</span>
+            </div>
+          </div>
+        </form>
+      </div>
 
       <div className="form-container active-form">
         <form onSubmit={submitFormHandler} className="form" id="form">

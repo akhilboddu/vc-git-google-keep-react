@@ -6,26 +6,26 @@ import Notes from "./components/Notes/Notes";
 import Modal from "./components/Modal/Modal";
 
 const NOTES = [
-  {
-    id: "a123",
-    title: "a different title",
-    text: "some text1",
-  },
-  {
-    id: "a1234",
-    title: "a different title2",
-    text: "some text1",
-  },
-  {
-    id: "a123",
-    title: "a different title",
-    text: "some text1",
-  },
-  {
-    id: "a1234",
-    title: "a different title2",
-    text: "some text1",
-  },
+  // {
+  //   id: "a123",
+  //   title: "a different title",
+  //   text: "some text1",
+  // },
+  // {
+  //   id: "a1234",
+  //   title: "a different title2",
+  //   text: "some text1",
+  // },
+  // {
+  //   id: "a123",
+  //   title: "a different title",
+  //   text: "some text1",
+  // },
+  // {
+  //   id: "a1234",
+  //   title: "a different title2",
+  //   text: "some text1",
+  // },
 ];
 
 const App = () => {
