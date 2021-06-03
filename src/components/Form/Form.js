@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Form.css";
 
-const Form = () => {
+const Form = (props) => {
   //   const [userInput, setUserInput] = useState({
   //     title: "",
   //     text: "",
@@ -40,6 +40,7 @@ const Form = () => {
       text,
     };
     console.log(note);
+    props.addNote(note);
     setTitle("");
     setText("");
   };
