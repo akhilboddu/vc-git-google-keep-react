@@ -31,7 +31,6 @@
   margin-top: 15px;
   padding: 0;
   justify-content: center;
-  visibility: hidden;
 }
 .note-footer .material-icons-outlined {
   color: #5f6368;
@@ -40,5 +39,4 @@
   position: absolute;
   left: -10px;
   top: -10px;
-  visibility: hidden;
 }
