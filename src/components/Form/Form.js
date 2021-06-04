@@ -1,43 +1,54 @@
 import React, { useState } from "react";
 import "./Form.css";
+import { uid } from 'uid';
+
 
 const Form = (props) => {
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
-  const [isActiveForm, setIsActiveForm] = useState(false);
+  console.log(props);
+  const { edit, selectedNote, toggleModal } = props;
+  const [title, setTitle] = useState(edit && selectedNote.title || "");
+  const [text, setText] = useState(edit && selectedNote.text || "");
+  const [isActiveForm, setIsActiveForm] = useState(edit);
 
   const titleChangeHandler = (event) => setTitle(event.target.value);
-  const textChangeHandler = (event) => setText(event.target.value);
+  const textChangeHandler = (event) => {
+    setText(event.target.value)
+    setIsActiveForm(true);
+  };
 
   const submitFormHandler = (event) => {
     event.preventDefault();
 
-    const note = {
-      id: "",
-      title,
-      text,
-    };
-    console.log(note);
-    props.addNote(note);
+    if(!edit) {
+      const note = {
+        id: uid(),
+        title,
+        text,
+      };
+      console.log(note)
+      props.addNote(note);
+      setIsActiveForm(false);
+    } else {
+      toggleModal()
+    }
+
     setTitle("");
     setText("");
-    setIsActiveForm(false);
+    
   };
 
   const formClickHandler = () => {
-    console.log("Form clicked on");
     setIsActiveForm(true);
   };
 
   return (
     <div>
       <div className="form-container active-form" onClick={formClickHandler}>
-        <form onSubmit={submitFormHandler} className={isActiveForm ? "form" : ""} id="form">
+        <form onSubmit={submitFormHandler} className={isActiveForm ? "form" : ""}>
           {isActiveForm && (
             <input
               onChange={titleChangeHandler}
               value={title}
-              id="note-title"
               type="text"
               className="note-title"
               placeholder="Title"
@@ -46,7 +57,6 @@ const Form = (props) => {
           <input
             onChange={textChangeHandler}
             value={text}
-            id="note-text"
             className="note-text"
             type="text"
             placeholder="Take a note..."
@@ -130,31 +140,3 @@ const Form = (props) => {
 };
 
 export default Form;
-
-{
-  /* <div className="form-container inactive-form" onClick={formClickHandler}>
-  <form>
-    <input
-      className="note-text"
-      type="text"
-      placeholder="Take a note..."
-      onChange={textChangeHandler}
-      value={text}
-    />
-    <div className="form-actions">
-      <div className="tooltip">
-        <span className="material-icons-outlined hover">check_box</span>
-        <span className="tooltip-text">New List</span>
-      </div>
-      <div className="tooltip">
-        <span className="material-icons-outlined hover">brush</span>
-        <span className="tooltip-text">New Drawing</span>
-      </div>
-      <div className="tooltip">
-        <span className="material-icons-outlined hover">image</span>
-        <span className="tooltip-text">New Image</span>
-      </div>
-    </div>
-  </form>
-</div>; */
-}
