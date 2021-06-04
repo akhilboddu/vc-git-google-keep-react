@@ -4,10 +4,9 @@ import { uid } from 'uid';
 
 
 const Form = (props) => {
-  console.log(props);
   const { edit, selectedNote, toggleModal } = props;
-  const [title, setTitle] = useState(edit && selectedNote.title || "");
-  const [text, setText] = useState(edit && selectedNote.text || "");
+  const [title, setTitle] = useState((edit && selectedNote.title) || "");
+  const [text, setText] = useState((edit && selectedNote.text) || "");
   const [isActiveForm, setIsActiveForm] = useState(edit);
 
   const titleChangeHandler = (event) => setTitle(event.target.value);
