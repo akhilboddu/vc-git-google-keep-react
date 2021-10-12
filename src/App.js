@@ -17,6 +17,11 @@ const App = () => {
       return [...prevNotes, note];
     });
   };
+  const addNote2 = (note) => {
+    setNotes((prevNotes) => {
+      return [...prevNotes, note];
+    });
+  };
   const editNote = (editedNote) => {
     setNotes(prevNotes => {
       const newArray = prevNotes.map(note => {
