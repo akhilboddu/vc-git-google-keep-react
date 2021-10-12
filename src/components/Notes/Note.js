@@ -2,16 +2,11 @@ import React, { useState } from "react";
 
 const Note = (props) => {
   const { toggleModal, note, setSelectedNote } = props;
-
-  const [title, setTitle] = useState(note.title);
-  const [text, setText] = useState(note.text);
   const [isHover, setIsHover] = useState(false);
 
   const noteClickHandler = () => {
     toggleModal();
-    setSelectedNote(note)
-    // setTitle("changed Title");
-    // setText("changed Text");
+    setSelectedNote(note);
   };
 
   const hoverOverHandler = () => {
@@ -32,8 +27,8 @@ const Note = (props) => {
       {isHover && (
         <span className="material-icons check-circle">check_circle</span>
       )}
-      <div className="title">{title}</div>
-      <div className="text">{text}</div>
+      <div className="title">{note.title}</div>
+      <div className="text">{note.text}</div>
 
       <div
         className="note-footer"

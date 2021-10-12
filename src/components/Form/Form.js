@@ -19,15 +19,18 @@ const Form = (props) => {
     event.preventDefault();
 
     if(!edit) {
-      const note = {
+      props.addNote({
         id: uid(),
         title,
         text,
-      };
-      console.log(note)
-      props.addNote(note);
+      });
       setIsActiveForm(false);
     } else {
+      props.editNote({
+        id: selectedNote.id,
+        title,
+        text
+      })
       toggleModal()
     }
 

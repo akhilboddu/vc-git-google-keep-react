@@ -17,6 +17,18 @@ const App = () => {
       return [...prevNotes, note];
     });
   };
+  const editNote = (editedNote) => {
+    setNotes(prevNotes => {
+      const newArray = prevNotes.map(note => {
+        if(editedNote.id === note.id) {
+          note.title = editedNote.title
+          note.text = editedNote.text
+        }
+        return note;
+      })
+      return newArray;
+    })
+  }
   const deleteNote = (id) => {
     setNotes((prevNotes) => {
       return prevNotes.filter((note) => id !== note.id);
@@ -41,7 +53,7 @@ const App = () => {
         setSelectedNote={setSelectedNote}
       />
       {isModalOpen && (
-        <Modal isModalOpen={isModalOpen} selectedNote={selectedNote} toggleModal={toggleModal}/>
+        <Modal isModalOpen={isModalOpen} selectedNote={selectedNote} toggleModal={toggleModal} editNote={editNote}/>
       )}
     </div>
   );
