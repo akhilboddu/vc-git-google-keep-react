@@ -18,6 +18,7 @@ const App = () => {
     });
   };
   const addNote3 = (note) => {
+    const demo = "test"
     setNotes((prevNotes) => {
       return [...prevNotes, note];
     });
